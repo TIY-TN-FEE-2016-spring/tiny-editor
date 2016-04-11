@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('collection', {
+    path: '/:collection'
+  });
 });
 
 export default Router;
