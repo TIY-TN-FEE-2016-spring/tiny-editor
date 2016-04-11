@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'lr-editor',
+    modulePrefix: 'tiny-editor',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

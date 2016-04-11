@@ -1,7 +1,7 @@
 {
-  "name": "lr-editor",
+  "name": "tiny-editor",
   "version": "0.0.0",
-  "description": "Small description for lr-editor goes here",
+  "description": "Small description for tiny-editor goes here",
   "private": true,
   "directories": {
     "doc": "doc",
