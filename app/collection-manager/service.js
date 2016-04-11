@@ -13,6 +13,12 @@ function replace(arr, item) {
   }, []);
 }
 
+function remove(arr, id) {
+  return arr.filter((carry, curr) => {
+    return curr._id !== id;
+  });
+}
+
 export default Ember.Service.extend({
   collectionName: ``,
   store: [],
@@ -71,4 +77,14 @@ export default Ember.Service.extend({
       this.set(`store`, replace(this.store, result));
     });
   },
+
+  destroyRecord(id) {
+    return fetch(`${this.get(`apiUrl`)}/${id}`, {
+      method: `DELETE`,
+    }).then((res) => {
+      return res.json();
+    }).then(() => {
+      this.set(`store`, remove(this.store, id));
+    });
+  }
 });

@@ -1,7 +1,8 @@
-<form {{action saveModel model._id model.json on="submit"}}>
+<form {{action noop on="submit"}}>
   <h2>Editing <code>{{model._id}}</code></h2>
   {{ivy-codemirror lineNumbers=true mode="javascript" value=model.json}}
 
   {{#link-to "collection"}}{{mdl-button text="Back"}}{{/link-to}}
-  {{mdl-button text="Save" isRaised=true}}
+  {{mdl-button on-click=(action deleteModel model._id) text="Delete" isAccent=true}}
+  {{mdl-button on-click=(action saveModel model._id model.json) text="Save" isRaised=true}}
 </form>

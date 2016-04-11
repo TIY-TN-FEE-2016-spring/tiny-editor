@@ -9,4 +9,16 @@ export default Ember.Controller.extend({
         this.transitionToRoute(`collection`);
       });
   },
+
+  deleteModel(id) {
+    if (confirm(`Are you sure you want to delete this record?`)) {
+      this.get(`collectionManager`).destroyRecord(id)
+        .then(() => {
+          this.transitionToRoute(`collection`);
+        });
+    }
+  },
+
+  noop() {
+  },
 });
