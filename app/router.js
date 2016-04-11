@@ -9,6 +9,10 @@ Router.map(function routes() {
   this.route(`collection`, { path: `/:collection` }, function routes() {
     this.route(`edit`, { path: `/:_id` });
   });
+
+  this.route('collection', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

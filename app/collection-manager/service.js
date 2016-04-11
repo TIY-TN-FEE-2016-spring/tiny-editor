@@ -14,7 +14,7 @@ function replace(arr, item) {
 }
 
 function remove(arr, id) {
-  return arr.filter((carry, curr) => {
+  return arr.filter((curr) => {
     return curr._id !== id;
   });
 }
@@ -86,5 +86,5 @@ export default Ember.Service.extend({
     }).then(() => {
       this.set(`store`, remove(this.store, id));
     });
-  }
+  },
 });

@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   saveModel(id, data) {
     return this.get(`collectionManager`).update(id, data)
       .then(() => {
-        this.transitionToRoute(`collection`);
+        this.transitionToRoute(`collection`, this.get(`collectionManager.collectionName`));
       });
   },
 
@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     if (confirm(`Are you sure you want to delete this record?`)) {
       this.get(`collectionManager`).destroyRecord(id)
         .then(() => {
-          this.transitionToRoute(`collection`);
+          this.transitionToRoute(`collection`, this.get(`collectionManager.collectionName`));
         });
     }
   },
