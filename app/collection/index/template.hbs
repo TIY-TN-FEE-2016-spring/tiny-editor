@@ -1,1 +1,7 @@
-{{outlet}}
+{{#each model as |resource|}}
+  {{#mdl-card title=resource._id}}
+    {{#mdl-card-buttons}}
+      {{#link-to "collection.edit" resource._id}}{{mdl-button icon='edit'}}{{/link-to}}
+    {{/mdl-card-buttons}}
+  {{/mdl-card}}
+{{/each}}

@@ -1,1 +1,13 @@
 @import 'material-design-lite';
+
+.mdl-card {
+  width: 100%;
+  min-height: auto;
+}
+
+code {
+  padding: 0 1rem;
+  border-radius: 0.2rem;
+  background: #b1b1b1;
+  color: #a11;
+}

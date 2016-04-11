@@ -1,1 +1,7 @@
-{{outlet}}
+<form {{action saveModel model._id model.json on="submit"}}>
+  <h2>Editing <code>{{model._id}}</code></h2>
+  {{ivy-codemirror lineNumbers=true mode="javascript" value=model.json}}
+
+  {{#link-to "collection"}}{{mdl-button text="Back"}}{{/link-to}}
+  {{mdl-button text="Save" isRaised=true}}
+</form>

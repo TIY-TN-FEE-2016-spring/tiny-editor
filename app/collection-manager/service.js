@@ -28,7 +28,7 @@ export default Ember.Service.extend({
 
   findAll() {
     if (this.loaded) {
-      return this.store;
+      return Promise.resolve(this.store);
     }
 
     return fetch(this.get(`apiUrl`))
@@ -48,7 +48,7 @@ export default Ember.Service.extend({
     });
 
     if (existing) {
-      return existing;
+      return Promise.resolve(existing);
     }
 
     return fetch(`${this.get(`apiUrl`)}/${id}`)
@@ -57,14 +57,14 @@ export default Ember.Service.extend({
       });
   },
 
-  update(hero) {
-    return fetch(`${this.get(`apiUrl`)}/${hero._id}`, {
+  update(id, data) {
+    return fetch(`${this.get(`apiUrl`)}/${id}`, {
       method: `PUT`,
       headers: {
         Accept: `application/json`,
         'Content-Type': `application/json`,
       },
-      body: JSON.stringify(hero),
+      body: data,
     }).then((res) => {
       return res.json();
     }).then((result) => {
