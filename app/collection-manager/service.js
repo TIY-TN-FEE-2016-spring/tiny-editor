@@ -32,8 +32,8 @@ export default Ember.Service.extend({
     this.set(`store`, []);
   },
 
-  findAll() {
-    if (this.loaded) {
+  findAll(forceReload) {
+    if (this.loaded && !forceReload) {
       return Promise.resolve(this.store);
     }
 
@@ -85,6 +85,21 @@ export default Ember.Service.extend({
       return res.json();
     }).then(() => {
       this.set(`store`, remove(this.store, id));
+    });
+  },
+
+  createRecord(data) {
+    return fetch(`${this.get(`apiUrl`)}`, {
+      method: `POST`,
+      headers: {
+        Accept: `application/json`,
+        'Content-Type': `application/json`,
+      },
+      body: data,
+    }).then((res) => {
+      return res.json();
+    }).then((result) => {
+      this.set(`store`, [...this.store, result]);
     });
   },
 });

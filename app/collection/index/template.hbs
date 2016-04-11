@@ -1,4 +1,5 @@
-{{mdl-button on-click=(action refreshModel)}}
+{{#link-to "collection.new"}}{{mdl-button text="Create New" isRaised=true isAccent=true}}{{/link-to}}
+{{mdl-button on-click=(action refreshModel) text="Refresh Data" isRaised=true}}
 
 {{#each model as |resource|}}
   {{#mdl-card title=resource._id}}

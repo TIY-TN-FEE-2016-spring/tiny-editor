@@ -6,5 +6,7 @@ export default Ember.Route.extend({
   model(params) {
     this.get(`collectionManager`)
       .setCollectionName(params.collection);
+
+    return params.collection;
   },
 });
