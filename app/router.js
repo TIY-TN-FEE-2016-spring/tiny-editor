@@ -8,6 +8,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('collection', {
     path: '/:collection'
+  }, function() {
+    this.route('edit', {
+      path: '/:id'
+    });
   });
 });
 
